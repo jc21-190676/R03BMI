@@ -40,7 +40,7 @@ namespace R03BMI
 
         }
 
-        private string BMI_Check(bouble bmi)    //bmiを元に体の状態(例：普通体重,低体重)を返す
+        private string BMI_Check(double bmi)    //bmiを元に体の状態(例：普通体重,低体重)を返す
         {
             string BMIStatus;
 
