@@ -19,25 +19,31 @@ namespace R03BMI
         private void Button_Clicked(object sender, EventArgs e)
         {
             double height = double.Parse(heighit.Text); //身長
-            double weight = double.Parse(heighit.Text); //体重
-
+            double weight = double.Parse(weighit.Text); //体重
+            string heightUnit = "m";
+            string weightUnit = "kg";
+            
             if(height > 3)  //cmをｍに変換
             {  
                 height /= 100;
+                heightUnit = "cm";
             }
             
             if(weight > 600) //gをkgに変換
             {
                 weight/=1000;
+                weightUnit = "g";
             }
 
             double bmi =weight / (height*height);
-            bmi /= Math.Round(bmi,2);
+            bmi = Math.Round(bmi,1);
 
             string BMIStatus = BMI_Check(bmi); 
+            
+            string text =　"身長"+heighit.Text+heightUnit;
+            text += ",体重"+weighit.Text+weightUnit; 
 
-            result.Text = bmi +" : "+ BMIStatus;
-
+            result.Text = text + "の人のBMIは、"+bmi+BMIStatus;
         }
 
         private string BMI_Check(double bmi)    //bmiを元に体の状態(例：普通体重,低体重)を返す
